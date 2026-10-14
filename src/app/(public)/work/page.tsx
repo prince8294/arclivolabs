@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, Eye, GitBranch, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Eye, GitBranch, ShieldCheck } from "lucide-react";
 
 import { PageHero } from "@/components/public/page-hero";
 import { ProjectCard } from "@/components/public/project-card";
