@@ -1,0 +1,5 @@
+import type { InputHTMLAttributes, SelectHTMLAttributes, TextareaHTMLAttributes } from 'react';
+const base = 'h-10 w-full rounded-lg border border-input bg-background px-3 text-sm';
+export function Field({ label, ...props }: InputHTMLAttributes<HTMLInputElement> & { label: string }) { return <label className="block space-y-1.5 text-sm font-medium">{label}<input {...props} className={`${base} ${props.className ?? ''}`} /></label>; }
+export function TextAreaField({ label, ...props }: TextareaHTMLAttributes<HTMLTextAreaElement> & { label: string }) { return <label className="block space-y-1.5 text-sm font-medium">{label}<textarea {...props} className={`min-h-24 w-full rounded-lg border border-input bg-background p-3 text-sm ${props.className ?? ''}`} /></label>; }
+export function SelectField({ label, children, ...props }: SelectHTMLAttributes<HTMLSelectElement> & { label: string }) { return <label className="block space-y-1.5 text-sm font-medium">{label}<select {...props} className={`${base} ${props.className ?? ''}`}>{children}</select></label>; }

@@ -1,0 +1,1 @@
+import {requireRole} from '@/lib/auth/authorization';import {USER_ROLES} from '@/types/auth';import ReportPage from '@/components/reports/report-page';export default async function Page(props:PageProps<'/admin/reports/sales'>){await requireRole(USER_ROLES.ADMIN);return <ReportPage type="sales" search={await props.searchParams}/>;}

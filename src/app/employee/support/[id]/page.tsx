@@ -1,0 +1,1 @@
+import { requireRole } from '@/lib/auth/authorization'; import { USER_ROLES } from '@/types/auth'; import { SupportDetail } from '@/components/operations/support-pages'; export default async function Page(props:PageProps<'/employee/support/[id]'>){const user=await requireRole(USER_ROLES.EMPLOYEE);const {id}=await props.params;return <SupportDetail user={user} ticketId={id}/>;}

@@ -1,0 +1,1 @@
+import { requireRole } from '@/lib/auth/authorization'; import { USER_ROLES } from '@/types/auth'; import { NewSupportTicket } from '@/components/operations/support-pages'; export default async function Page(){await requireRole(USER_ROLES.MARKETING);return <NewSupportTicket/>;}

@@ -1,0 +1,4 @@
+import { Schema, Types, model, models } from 'mongoose'; import { stripVersionKey } from '@/lib/db/schema-utils';
+export interface ISupportMessage { _id: Types.ObjectId; ticketId: Types.ObjectId; authorUserId: Types.ObjectId; body: string; isInternal: boolean; createdAt: Date; }
+const SupportMessageSchema = new Schema<ISupportMessage>({ ticketId: { type: Schema.Types.ObjectId, ref: 'SupportTicket', required: true }, authorUserId: { type: Schema.Types.ObjectId, ref: 'User', required: true }, body: { type: String, required: true, trim: true, maxlength: 5000 }, isInternal: { type: Boolean, required: true, default: false } }, { timestamps: { createdAt: true, updatedAt: false }, collection: 'support_messages', toJSON: { transform: stripVersionKey } }); SupportMessageSchema.index({ ticketId: 1, createdAt: 1 });
+export const SupportMessage = models.SupportMessage || model<ISupportMessage>('SupportMessage', SupportMessageSchema);

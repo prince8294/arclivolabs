@@ -1,0 +1,2 @@
+import { requireRole } from '@/lib/auth/authorization'; import { USER_ROLES } from '@/types/auth'; import PaymentListPage from '@/components/payments/payment-list-page'; import { PAYMENT_STATUSES } from '@/lib/constants/enums';
+export default async function Page(props: PageProps<'/admin/payments/rejected'>) { await requireRole(USER_ROLES.ADMIN); return <PaymentListPage title="Rejected Payments" description="Rejected claims remain preserved without changing invoice balances." search={await props.searchParams} fixedStatus={PAYMENT_STATUSES.REJECTED} />; }
